@@ -70,7 +70,7 @@ public class ChessPiece {
         Collection<ChessMove> moveList;
         moveList = switch (type) {
             case KING -> null;
-            case QUEEN -> null;
+            case QUEEN -> new QueenMovesCalculator().pieceMoves(board, myPosition);
             case BISHOP -> new BishopMovesCalculator().pieceMoves(board, myPosition);
             case KNIGHT -> null;
             case ROOK -> new RookMovesCalculator().pieceMoves(board, myPosition);
