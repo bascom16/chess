@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class BishopMovesCalculator implements PieceMovesCalculator {
-
     @Override
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition position) {
         ArrayList<ChessMove> moveList = new ArrayList<>();
-
         // Check upper right++, upper left+-, lower right-+, lower left--
         int myRow = position.getRow();
         int myCol = position.getColumn();
@@ -24,18 +22,13 @@ public class BishopMovesCalculator implements PieceMovesCalculator {
                     if (checkMove(board, myColor, nextPosition)) {
                         moveList.add(new ChessMove(position, nextPosition, null));
                         /* Check to see if next piece is blocking path */
-                        if (board.getPiece(nextPosition) != null) {
-                            break;
-                        }
+                        if (board.getPiece(nextPosition) != null) { break; }
                         i = i + rowShift;
                         j = j + colShift;
-                    } else {
-                        break;
-                    }
+                    } else { break; }
                 }
             }
         }
         return moveList;
     }
-
 }
