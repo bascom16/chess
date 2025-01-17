@@ -13,6 +13,9 @@ public interface PieceMovesCalculator {
         if (col < 1 || col > 8) { return false; }
         /* Check team */
         ChessPiece current_piece = board.getPiece(position);
-        return current_piece.getTeamColor() != myColor;
+        if (current_piece == null) { return true; }
+        else {
+            return current_piece.getTeamColor() != myColor;
+        }
     }
 }
