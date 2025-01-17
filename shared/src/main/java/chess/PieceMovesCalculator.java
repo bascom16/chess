@@ -12,10 +12,10 @@ public interface PieceMovesCalculator {
         int col = position.getColumn();
         if (col < 1 || col > 8) { return false; }
         /* Check team */
-        ChessPiece current_piece = board.getPiece(position);
-        if (current_piece == null) { return true; }
+        ChessPiece currentPiece = board.getPiece(position);
+        if (currentPiece == null) { return true; }
         else {
-            return current_piece.getTeamColor() != myColor;
+            return currentPiece.getTeamColor() != myColor;
         }
     }
 }
